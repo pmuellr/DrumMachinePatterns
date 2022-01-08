@@ -29,12 +29,12 @@ for (const pattern of patterns) {
   const trackNames = Object.keys(tracks)
 
   for (const trackName of trackNames) {
-    let line = `| ${trackName} | <tt> `
+    let line = `| ${trackName} | `
     for (let step = 0; step < length; step++) {
       const val = getStepChar(tracks[trackName][step])
+      if (step % 4 === 0 && step < length - 1) line = `${line} <tt>`
       line = `${line} ${val}`
       if (step % 4 === 3) line = `${line} </tt> |`
-      if (step < length - 1) line = `${line} <tt>`
     }
     console.log(line)
   }
